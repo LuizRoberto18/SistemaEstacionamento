@@ -14,9 +14,15 @@ public class HomeController {
         return index;
     }
 
-    @RequestMapping("/cadastro")
+    @RequestMapping("/cadastro-usuario")
     public ModelAndView cadastroUsuario() {
         ModelAndView cadastro = new ModelAndView("cadastro-usuario.html");
+        return cadastro;
+    }
+
+    @RequestMapping("/cadastro-veiculo")
+    public ModelAndView cadastroVeiculo() {
+        ModelAndView cadastro = new ModelAndView("cadastro-veiculo.html");
         return cadastro;
     }
 
