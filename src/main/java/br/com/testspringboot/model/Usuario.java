@@ -1,11 +1,19 @@
 package br.com.testspringboot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
     
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome, usuario, senha;
         
-    public Usuario(int id, String nome, String usuario, String senha) {
+    public Usuario(Long id, String nome, String usuario, String senha) {
         this.id = id;
         this.nome = nome;
         this.usuario = usuario;
@@ -15,10 +23,10 @@ public class Usuario {
         
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getNome() {

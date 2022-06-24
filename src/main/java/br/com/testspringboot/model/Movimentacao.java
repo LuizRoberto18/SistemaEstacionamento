@@ -2,15 +2,23 @@ package br.com.testspringboot.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Movimentacao {
 	
-	 private int id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
 	 private String placa, modelo; 
 	 private Date data_entrada, data_saida;
 	 private float tempo;
 	 private int valor_pago; 
 	 
-	public Movimentacao(int id, String placa, String modelo, Date data_entrada, Date data_saida, float tempo,
+	public Movimentacao(Long id, String placa, String modelo, Date data_entrada, Date data_saida, float tempo,
 			int valor_pago) {
 		super();
 		this.id = id;
@@ -22,10 +30,14 @@ public class Movimentacao {
 		this.valor_pago = valor_pago;
 	}
 	
-	public int getId() {
+	public Movimentacao(){
+
+	}
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getPlaca() {

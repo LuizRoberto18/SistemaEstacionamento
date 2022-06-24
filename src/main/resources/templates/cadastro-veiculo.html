@@ -127,12 +127,22 @@
                                     <div class="row">
                                         <div class="col-lg-6 d-flex align-items-center justify-content-center">
 
-                                            <form class="user" action="POST">
+                                            <form class="user" method="POST" action="cadastrar-veiculo">
                                                 <div class="form-group ">
-                                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Modelo">
+                                                    <input type="text" class="form-control form-control-user" name="modelo" id="modelo" aria-describedby="emailHelp" placeholder="Modelo" th:value="${movimentacao.modelo}">
+                                                    <span class="msg_erro msg_modelo" style="display: none"> O Campo Modelo é Obrigatorio</span>
+                                                    <span class="msg_erro msg_nome_modelo" style="display: none"> este Modelo é invalido</span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Placa">
+                                                    <input type="text" class="form-control form-control-user" name="placa" id="placa" placeholder="Placa" th:value="movimentacao.placa">
+                                                    <span class="msg_erro msg_placa" style="display: none"> O Campo Placa é Obrigatorio</span>
+                                                    <span class="msg_erro msg_nome_placa" style="display: none"> esta Placa é invalida</span>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="lista-veiculos" type="submit" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3">
+
+                                                        <span class="text">Salvar</span>
+                                                    </a>
                                                 </div>
                                             </form>
 
@@ -143,12 +153,7 @@
                                     </div>
 
                                 </div>
-                                <div class="card-footer text-center">
-                                    <a href="lista-veiculos.html" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3">
 
-                                        <span class="text">Salvar</span>
-                                    </a>
-                                </div>
                             </div>
                             <!-- / Fim do Card-->
 
@@ -201,6 +206,8 @@
         </div>
     </div>
 
+    <!--Validar Veiculo-->
+    <script src="js/cadastro-veiculo.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

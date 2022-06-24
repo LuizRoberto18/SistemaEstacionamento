@@ -82,7 +82,7 @@ public class UsuarioController {
 				Usuario usuario = new Usuario();
 
 				//Recuperar o Id
-				usuario.setId(rset.getInt("id"));
+				usuario.setId(rset.getLong("id"));
 				//Recuperar o nome
 				usuario.setNome(rset.getString("nome"));
 				//Recuperar o usuario
@@ -131,7 +131,7 @@ public class UsuarioController {
 			//setDate(3, new Date(usuario.getData().getTime())
 			
 			//Qual o Id do registro que deseja atualizar
-			pstm.setInt(4, usuario.getId());
+			pstm.setLong(4, usuario.getId());
 			
 			//Executar a query
 			pstm.execute();

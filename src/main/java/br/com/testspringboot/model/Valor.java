@@ -2,14 +2,22 @@ package br.com.testspringboot.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Valor {
 	
-	private int id; 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
 	private int valor_primeira_hora, valor_demais;
 	private int horas;
 	private Date data_fim;
 	
-	public Valor(int id, int valor_primeira_hora, int valor_demais, int horas, Date data_fim) {
+	public Valor(Long id, int valor_primeira_hora, int valor_demais, int horas, Date data_fim) {
 		super();
 		this.id = id;
 		this.valor_primeira_hora = valor_primeira_hora;
@@ -18,10 +26,10 @@ public class Valor {
 		this.data_fim = data_fim;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public int getValor_primeira_hora() {

@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
 	
+	
 	//Nome do Usuário do MySql
 	private static final String USERNAME = "root";
 	

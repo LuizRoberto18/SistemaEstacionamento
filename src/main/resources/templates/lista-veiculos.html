@@ -148,52 +148,40 @@
                                             <th>Tempo</th>
                                             <th>Valor Pago</th>
                                         </tr>
+                                        <tr th:each="movimentacao:${movimentacoes}">
 
-                                        <td>1</td>
-                                        <td>Honda Civc</td>
-                                        <td>ABCD123</td>
-                                        <td>23/06/2021</td>
-                                        <td>23/06/2021</td>
-                                        <td>01:00</td>
-                                        <td>R$ 6,00</td>
+                                            <td th:text="${movimentacao.id}"></td>
+                                            <td th:text="${movimentacao.modelo"></td>
+                                            <td th:text="${movimentacao.placa}"></td>
+                                            <td th:text="${movimentacao.data_entrada}"></td>
+                                            <td th:text="${movimentacao.data_saida}"></td>
+                                            <td th:text="${movimentacao.tempo}"></td>
+                                            <td th:text="${movimentacao.valor_pago}"></td>
+
+                                        </tr>
                                     </tfoot>
 
                                     <tbody>
-                                        <tr>
+                                        <tr th:each="movimentacao:${movimentacoes}">
 
-                                            <td>1</td>
-                                            <td>Honda Civc</td>
-                                            <td colspan="2">ABCD123</td>
-                                            <td>12:00</td>
+                                            <td th:text="${movimentacao.id}"></td>
+                                            <td th:text="${movimentacao.modelo"></td>
+                                            <td th:text="${movimentacao.placa}"></td>
+                                            <td th:text="${movimentacao.data_entrada}"></td>
                                             <td>
-                                                <a href="cadastro-veiculo.html" class="btn btn-editar btn-icon-split btn-lg mt-2 mb-2">
+                                                <a th:href="@{'/atualizar_veiculo/' + ${movimentacao.id}}">
+                                                    <button type="submit" class="btn btn-editar btn-icon-split btn-lg mt-2 mb-2">
 
-                                                    <span class="text">Editar</span>
+                                                        <span class="text">Editar</span>
+                                                    </button>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="lista-veiculos.html" class="btn btn-retirar btn-icon-split btn-lg mt-2 mb-2">
+                                                <a th:href="@{'/excluir_veiculo/' + ${movimentacao.id}}">
+                                                    <button type="submit" class="btn btn-retirar btn-icon-split btn-lg mt-2 mb-2">
 
-                                                    <span class="text">Retirar</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>2</td>
-                                            <td>Fusca</td>
-                                            <td colspan="2">EFGH567</td>
-                                            <td>09:00</td>
-                                            <td>
-                                                <a href="cadastro-veiculo.html" class="btn btn-editar btn-icon-split btn-lg mt-2 mb-2">
-
-                                                    <span class="text">Editar</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="lista-veiculos.html" class="btn btn-retirar btn-icon-split btn-lg mt-2 mb-2">
-
-                                                    <span class="text">Retirar</span>
+                                                        <span class="text">Retirar</span>
+                                                    </button>
                                                 </a>
                                             </td>
                                         </tr>

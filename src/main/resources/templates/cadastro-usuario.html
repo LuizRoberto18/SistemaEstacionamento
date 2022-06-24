@@ -35,27 +35,35 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Cadastrar!</h1>
                             </div>
-                            <form class="user" method="POST" action="cadastrar">
+                            <form class="user" method="POST" action="cadastrar-user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
+                                        <input type="text" class="form-control form-control-user" name="nome" id="usuario" placeholder="Nome" th:value="${usuario.nome}">
+                                        <span class="msg_erro msg_nome" style="display: none"> O Campo nome é Obrigatorio</span>
+                                        <span class="msg_erro msg_nome_invalido" style="display: none"> este Nome é invalido</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Usuário">
+                                        <input type="text" class="form-control form-control-user" name="usuario" id="nome" placeholder="Usuário" th:value="${usuario.usuario}">
+                                        <span class="msg_erro msg_usuario" style="display: none"> O Campo Usuário é Obrigatorio</span>
+                                        <span class="msg_erro msg_usuario_invalido" style="display: none"> este Usuário é invalido</span>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+                                        <input type="password" class="form-control form-control-user" name="senha" id="senha" placeholder="Senha">
+                                        <span class="msg_erro msg_senha" style="display: none"> O Campo Senha é Obrigatorio</span>
+                                        <span class="msg_erro msg_senha_invalida" style="display: none"> esta Senha é invalido</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme a Senha">
+                                        <input type="password" class="form-control form-control-user" name="confirmacao" id="confirmacao" placeholder="Confirme a Senha">
+                                        <span class="msg_erro msg_confSenha" style="display: none"> O Campo Confirmar Senha é Obrigatorio</span>
+                                        <span class="msg_erro msg_senha_invalida" style="display: none"> esta Confirmação da Senha é invalido</span>
                                     </div>
                                 </div>
-                                <a href="/" class="btn btn-primary btn-user btn-block" type="submit">
+                                <button class="btn btn-primary btn-user btn-block" type="submit" onclick="validarUsuario()">
                   Cadastrar
-                </a>
+                                </button>
 
                             </form>
                             <hr>
@@ -73,6 +81,9 @@
         <!--COLOCAR MEU GITHUB-->
         <a href="">Developed By Luiz</a>
     </div>
+
+    <!--Validação do formulario-->
+    <script src="js/cadastro-usuario.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
