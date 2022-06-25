@@ -10,5 +10,5 @@ import br.com.testspringboot.model.Movimentacao;
 
 @Repository
 public interface MovimentacaoRepository extends CrudRepository<Movimentacao, Long>{
-    List<Movimentacao> findByNomeContaining(String modelo);
+    List<Movimentacao> findByModeloContaining(String modelo);
 }

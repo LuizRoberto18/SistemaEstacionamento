@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
 	
-	
 	//Nome do Usuário do MySql
 	private static final String USERNAME = "root";
 	
@@ -23,8 +22,8 @@ public class ConnectionFactory {
 		//Faz com que a classe seja carregada pela JVM
 		Class.forName("com.mysql.jdbc.Driver");
 		
-			//Cria a conexão com o banco de dados
-			Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+		//Cria a conexão com o banco de dados
+		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 		
 		return connection;
 	}

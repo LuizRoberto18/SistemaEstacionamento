@@ -13,17 +13,16 @@ public class Valor {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
-	private int valor_primeira_hora, valor_demais;
-	private int horas;
-	private Date data_fim;
+	private int valorPrimeiraHora;
+	private int valorDemaisHoras;
+	private Date dataFim;
 	
-	public Valor(Long id, int valor_primeira_hora, int valor_demais, int horas, Date data_fim) {
+	public Valor(Long id, int valorPrimeiraHora, int valorDemaisHoras, Date dataFim) {
 		super();
 		this.id = id;
-		this.valor_primeira_hora = valor_primeira_hora;
-		this.valor_demais = valor_demais;
-		this.horas = horas;
-		this.data_fim = data_fim;
+		this.valorPrimeiraHora = valorPrimeiraHora;
+		this.valorDemaisHoras = valorDemaisHoras;
+		this.dataFim = dataFim;
 	}
 	
 	public Long getId() {
@@ -32,29 +31,24 @@ public class Valor {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getValor_primeira_hora() {
-		return valor_primeira_hora;
+	public int getvalorPrimeiraHora() {
+		return valorPrimeiraHora;
 	}
-	public void setValor_primeira_hora(int valor_primeira_hora) {
-		this.valor_primeira_hora = valor_primeira_hora;
+	public void setvalorPrimeiraHora(int valorPrimeiraHora) {
+		this.valorPrimeiraHora = valorPrimeiraHora;
 	}
-	public int getValor_demais() {
-		return valor_demais;
+	public int getvalorDemaisHoras() {
+		return valorDemaisHoras;
 	}
-	public void setValor_demais(int valor_demais) {
-		this.valor_demais = valor_demais;
+	public void setvalorDemaisHoras(int valorDemaisHoras) {
+		this.valorDemaisHoras = valorDemaisHoras;
 	}
-	public int getHoras() {
-		return horas;
+	
+	public Date getdataFim() {
+		return dataFim;
 	}
-	public void setHoras(int horas) {
-		this.horas = horas;
-	}
-	public Date getData_fim() {
-		return data_fim;
-	}
-	public void setData_fim(Date data_fim) {
-		this.data_fim = data_fim;
+	public void setdataFim(Date dataFim) {
+		this.dataFim = dataFim;
 	}
 	
 }

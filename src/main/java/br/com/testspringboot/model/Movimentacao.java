@@ -13,21 +13,23 @@ public class Movimentacao {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long id;
-	 private String placa, modelo; 
-	 private Date data_entrada, data_saida;
+	 private String placa;
+	 private String  modelo;
+	 private Date dataEntrada;
+	 private Date dataSaida;
 	 private float tempo;
-	 private int valor_pago; 
+	 private int valorPago; 
 	 
-	public Movimentacao(Long id, String placa, String modelo, Date data_entrada, Date data_saida, float tempo,
-			int valor_pago) {
+	public Movimentacao(Long id, String placa, String modelo, Date dataEntrada, Date dataSaida, float tempo,
+			int valorPago) {
 		super();
 		this.id = id;
 		this.placa = placa;
 		this.modelo = modelo;
-		this.data_entrada = data_entrada;
-		this.data_saida = data_saida;
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
 		this.tempo = tempo;
-		this.valor_pago = valor_pago;
+		this.valorPago = valorPago;
 	}
 	
 	public Movimentacao(){
@@ -37,44 +39,61 @@ public class Movimentacao {
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getPlaca() {
 		return placa;
 	}
+	
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
+	
 	public String getModelo() {
 		return modelo;
 	}
+
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public Date getData_entrada() {
-		return data_entrada;
+	
+	public Date getDataEntrada() {
+		return dataEntrada;
 	}
-	public void setData_entrada(Date data_entrada) {
-		this.data_entrada = data_entrada;
+
+	public void setDataEntrada(Date dataEntrada) {
+		this.dataEntrada = dataEntrada;
 	}
-	public Date getData_saida() {
-		return data_saida;
+
+	public Date getDataSaida() {
+		return dataSaida;
 	}
-	public void setData_saida(Date data_saida) {
-		this.data_saida = data_saida;
+
+	public void setDataSaida(Date dataSaida) {
+		this.dataSaida = dataSaida;
 	}
+
 	public float getTempo() {
 		return tempo;
 	}
+
 	public void setTempo(float tempo) {
 		this.tempo = tempo;
 	}
-	public int getValor_pago() {
-		return valor_pago;
+
+	public int getValorPago() {
+		return valorPago;
 	}
-	public void setValor_pago(int valor_pago) {
-		this.valor_pago = valor_pago;
+
+	public void setValorPago(int valorPago) {
+		this.valorPago = valorPago;
 	}
 	 
+	@Override
+	public String toString() {
+		return getModelo() + getPlaca() + getDataEntrada() + getDataSaida() + getTempo() + getValorPago();
+	}
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -32,7 +32,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+
                 </div>
                 <div class="sidebar-brand-text mx-3">Estacionamento</div>
             </a>
@@ -48,8 +48,8 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="lista-veiculos.html">
-                    <i class="fas fa-fw fa-cube"></i>
+                <a class="nav-link" href="lista-veiculos">
+
                     <span>Movimentação</span></a>
             </li>
             <br>
@@ -60,8 +60,8 @@
             <br>
             <br>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-cubes"></i>
+                <a class="nav-link" href="/">
+
                     <span>Sair</span></a>
             </li>
 
@@ -129,26 +129,28 @@
 
                                             <form class="user" method="POST" action="cadastrar-veiculo">
                                                 <div class="form-group ">
-                                                    <input type="text" class="form-control form-control-user" name="modelo" id="modelo" aria-describedby="emailHelp" placeholder="Modelo" th:value="${movimentacao.modelo}">
+                                                    <input type="text" class="form-control form-control-user" name="modelo" id="modelo" aria-describedby="emailHelp" placeholder="Modelo">
                                                     <span class="msg_erro msg_modelo" style="display: none"> O Campo Modelo é Obrigatorio</span>
                                                     <span class="msg_erro msg_nome_modelo" style="display: none"> este Modelo é invalido</span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" name="placa" id="placa" placeholder="Placa" th:value="movimentacao.placa">
+                                                    <input type="text" class="form-control form-control-user" name="placa" id="placa" placeholder="Placa">
                                                     <span class="msg_erro msg_placa" style="display: none"> O Campo Placa é Obrigatorio</span>
                                                     <span class="msg_erro msg_nome_placa" style="display: none"> esta Placa é invalida</span>
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <a href="lista-veiculos" type="submit" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3">
+                                                    <a href="cadastrar-veiculo">
+                                                        <button type="submit" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3" onclick="validarVeiculo()">
 
-                                                        <span class="text">Salvar</span>
+                                                            <span class="text">Salvar</span>
+                                                        </button>
                                                     </a>
                                                 </div>
                                             </form>
 
                                         </div>
-                                        <div class="col-md-6">
-                                            <img class="imagem-novaaposta img-fluid" alt="dinheiro" src="../static/css/img/bg-cadastro.jpg">
+                                        <div class="col-lg-5 d-none d-lg-block bg-register-image">
+
                                         </div>
                                     </div>
 
@@ -170,7 +172,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Developed by <a href="https://github.com/LuizRoberto18">Luiz</a> 2022</span>
                     </div>
                 </div>
             </footer>
@@ -182,29 +184,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!--Validar Veiculo-->
     <script src="js/cadastro-veiculo.js"></script>

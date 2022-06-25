@@ -23,7 +23,7 @@ public class UsuarioController {
 	 * D -> DELETE
 	 * */
 	
-	public void saveUser(Usuario usuario) {
+	public void create(Usuario usuario) {
 		String sql = "INSERT INTO tbl_usuario(nome, usuario, senha) VALUES (?, ?, ?)";
 		 
 		Connection conn = null;

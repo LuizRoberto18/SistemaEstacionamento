@@ -20,7 +20,12 @@ create table tbl_movimentacao(
 create table tbl_valor(
     id int not null auto_increment primary key, 
     valor_primeira_hora int,
-    valor_demais int ,
-    horas int,
+    valor_demais_horas int ,
     data_fim date
 );
+
+INSERT INTO tbl_valor(id, valor_primeira_hora, valor_demais_horas, data_fim)
+    VALUES (1, 6.00, 4.00, null);
+
+INSERT INTO tbl_usuario(nome, usuario, senha)
+    VALUES ("admin", "admin", 123456);

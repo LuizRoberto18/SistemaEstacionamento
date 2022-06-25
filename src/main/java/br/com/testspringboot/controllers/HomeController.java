@@ -3,6 +3,7 @@ package br.com.testspringboot.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,19 +15,9 @@ import br.com.testspringboot.model.Usuario;
 import br.com.testspringboot.repository.MovimentacaoRepository;
 import br.com.testspringboot.repository.UsuarioRepository;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-
-
-@RestController
+@Controller
 public class HomeController {
     
-   /*  @Bean(name="entityManagerFactory")
-	public LocalSessionFactoryBean localSessionFactoryBean(){
-		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		return sessionFactory;
-	}*/
-
     @Autowired
 	UsuarioRepository userRepo;
 
@@ -39,14 +30,14 @@ public class HomeController {
     //NAVEGANDO PARA PAGINA DE LOGIN
     @RequestMapping("/")
     public ModelAndView indexPage() {
-        ModelAndView index = new ModelAndView("index.html");
-        return index;
+        ModelAndView indexPage = new ModelAndView("index.html");
+        return indexPage;
     }
 
     //METODO PARA FAZER LOGIN
     @RequestMapping("/login")
     public ModelAndView login(Usuario user, RedirectAttributes redirect) {
-        ModelAndView cadastroVeiculo = new ModelAndView("redirect:/cadastro-veiculo");
+        ModelAndView cadastroVeiculo = new ModelAndView("redirect:/lista-veiculos");
         redirect.addFlashAttribute("mensagem", user.getNome() + " Logado com sucesso");
         return cadastroVeiculo;
     }
@@ -77,13 +68,13 @@ public class HomeController {
     @RequestMapping("/cadastrar-veiculo")
     public ModelAndView cadastarVeiculo(Movimentacao mov, RedirectAttributes redirect) {
         movRepo.save(mov);
-        ModelAndView cadastroVeiculo = new ModelAndView("redirect:/");
+        ModelAndView cadastroVeiculo = new ModelAndView("redirect:/lista-veiculos");
         redirect.addFlashAttribute("mensagem", mov.getModelo() + " Cadastrado com sucesso");
         return cadastroVeiculo;
     }
 
     //METODO PARA EDITAR VEICULO
-	@RequestMapping("/atualizar_veiculo/{idMov}")
+	@RequestMapping("/atualizar-veiculo/{idMov}")
 	public ModelAndView editarVeiculo(@PathVariable("idMov") Long movID){
 		Optional<Movimentacao> opcao = movRepo.findById(movID);
 		ModelAndView atualiar = new ModelAndView("cadastrar-veiculo.html");
@@ -96,7 +87,7 @@ public class HomeController {
 	}
 
     //METODO PARA EXCLUIR VEICULO DO ESTACIONAMENTO
-    @RequestMapping("/excluir_veiculo/{idMov}")
+    @RequestMapping("/excluir-veiculo/{idMov}")
 	public ModelAndView excluirVeiculo(@PathVariable("idVeiculo") Long movID, RedirectAttributes redirect){
 		Optional<Movimentacao> opcao = movRepo.findById(movID);
 		ModelAndView excluirVeiculo = new ModelAndView("redirect:/lista-veiculos");
@@ -113,7 +104,7 @@ public class HomeController {
 
     //NAVEGANDO PARA PAGINA DE MOVIMENTACAO DO ESTACIONAMENTO
     @RequestMapping("/lista-veiculos")
-    public ModelAndView lisaVeiculos() {
+    public ModelAndView listaVeiculos() {
         ModelAndView cadastro = new ModelAndView("lista-veiculos.html");
         return cadastro;
     }
